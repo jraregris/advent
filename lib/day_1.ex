@@ -7,6 +7,10 @@ defmodule Day1 do
     -6
   end
 
+  def calibrate([n]) do
+    n
+  end
+
   def calibrate(_) do
     3
   end
