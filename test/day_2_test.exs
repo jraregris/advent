@@ -17,30 +17,9 @@ defmodule Day2Test do
       assert repeats == {false, true}
     end
 
-    test "checksum" do
-      checksum = [{false, true}, {true, true}] |> Day2.checksum()
-      assert checksum == 2
-    end
-
     test "checksum2" do
-      checksum = ["abcdefgg", "abbcdeee"] |> Day2.checksum2()
+      checksum = ["abcdefgg", "abbcdeee"] |> Day2.checksum()
       assert checksum == 2
-    end
-
-    test "checksum example" do
-      checksum =
-        [
-          {false, false},
-          {true, true},
-          {true, false},
-          {false, true},
-          {true, false},
-          {true, false},
-          {false, true}
-        ]
-        |> Day2.checksum()
-
-      assert checksum == 12
     end
 
     test "checksum2 example" do
@@ -54,7 +33,7 @@ defmodule Day2Test do
           "abcdee",
           "ababab"
         ]
-        |> Day2.checksum2()
+        |> Day2.checksum()
 
       assert checksum == 12
     end
