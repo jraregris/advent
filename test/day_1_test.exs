@@ -31,7 +31,7 @@ defmodule AdventTest do
 
     test "two numbers" do
       frequency = [1, 2] |> Day1.calibrate()
-      assert frequency == frequency
+      assert frequency == 3
     end
   end
 end
