@@ -6,8 +6,7 @@ defmodule Day2 do
       |> Enum.sort()
       |> Enum.chunk_by(fn x -> x end)
       |> Enum.map(fn x -> length(x) end)
-      |> IO.inspect()
 
-    {false, false}
+    {groups |> Enum.member?(2), groups |> Enum.member?(3)}
   end
 end

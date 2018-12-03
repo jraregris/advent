@@ -9,7 +9,7 @@ defmodule Day2Test do
 
     test "repeat twice" do
       repeats = "abcdee" |> Day2.repeats()
-      assert repeats == {false, false}
+      assert repeats == {true, false}
     end
   end
 end
