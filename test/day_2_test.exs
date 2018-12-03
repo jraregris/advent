@@ -11,5 +11,10 @@ defmodule Day2Test do
       repeats = "abcdee" |> Day2.repeats()
       assert repeats == {true, false}
     end
+
+    test "repeat trice" do
+      repeats = "abcccd" |> Day2.repeats()
+      assert repeats == {false, true}
+    end
   end
 end
