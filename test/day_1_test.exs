@@ -28,5 +28,10 @@ defmodule AdventTest do
       frequency = [1] |> Day1.calibrate()
       assert frequency == 1
     end
+
+    test "two numbers" do
+      frequency = [1, 2] |> Day1.calibrate()
+      assert frequency == frequency
+    end
   end
 end
