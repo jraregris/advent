@@ -1,8 +1,4 @@
 defmodule Day1 do
-  def calibrate([+1, +1, -2]) do
-    0
-  end
-
   def calibrate([n]) do
     n
   end
