@@ -1,4 +1,4 @@
-defmodule AdventTest do
+defmodule Day1Test do
   use ExUnit.Case
 
   describe "calibration examples" do
