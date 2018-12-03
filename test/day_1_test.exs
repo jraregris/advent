@@ -34,4 +34,9 @@ defmodule AdventTest do
       assert frequency == 3
     end
   end
+
+  describe "frequency examples" do
+    frequency = [+1, -1] |> Day1.frequency()
+    assert frequency == 0
+  end
 end
