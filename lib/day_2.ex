@@ -20,4 +20,8 @@ defmodule Day2 do
 
     twi * thri
   end
+
+  def checksum2(l) do
+    l |> Enum.map(&repeats/1) |> checksum()
+  end
 end

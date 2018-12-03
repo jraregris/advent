@@ -22,6 +22,11 @@ defmodule Day2Test do
       assert checksum == 2
     end
 
+    test "checksum2" do
+      checksum = ["abcdefgg", "abbcdeee"] |> Day2.checksum2()
+      assert checksum == 2
+    end
+
     test "checksum example" do
       checksum =
         [
@@ -34,6 +39,22 @@ defmodule Day2Test do
           {false, true}
         ]
         |> Day2.checksum()
+
+      assert checksum == 12
+    end
+
+    test "checksum2 example" do
+      checksum =
+        [
+          "abcdef",
+          "bababc",
+          "abbcde",
+          "abcccd",
+          "aabcdd",
+          "abcdee",
+          "ababab"
+        ]
+        |> Day2.checksum2()
 
       assert checksum == 12
     end
