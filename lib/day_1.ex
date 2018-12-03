@@ -8,6 +8,7 @@ defmodule Day1 do
   end
 
   def frequency(n) do
+    Stream.cycle(n) |> IO.inspect()
     0
   end
 end
