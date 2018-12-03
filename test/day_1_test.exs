@@ -1,7 +1,7 @@
 defmodule AdventTest do
   use ExUnit.Case
 
-  describe "examples" do
+  describe "calibration examples" do
     test "first example" do
       frequency = [+1, -2, +3, +1] |> Day1.calibrate()
       assert 3 == frequency
