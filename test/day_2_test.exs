@@ -3,7 +3,8 @@ defmodule Day2Test do
 
   describe "features" do
     test "no repeats" do
-      "abcdef"
+      repeats = "abcdef" |> Day2.repeats()
+      assert 0 == 0
     end
   end
 end
