@@ -14,8 +14,4 @@ defmodule Freqs do
       MapSet.member?(freqs, n)
     end)
   end
-
-  def stop(f) do
-    Agent.stop(f)
-  end
 end

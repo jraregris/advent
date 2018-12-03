@@ -8,8 +8,4 @@ defmodule Change do
     Agent.update(f, fn _ -> tail ++ [h] end)
     h
   end
-
-  def stop(f) do
-    Agent.stop(f)
-  end
 end
