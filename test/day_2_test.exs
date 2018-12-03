@@ -23,16 +23,17 @@ defmodule Day2Test do
     end
 
     test "checksum example" do
-      [
-        {false, false},
-        {true, true},
-        {true, false},
-        {false, true},
-        {true, false},
-        {true, false},
-        {false, true}
-      ]
-      |> Day2.checksum()
+      checksum =
+        [
+          {false, false},
+          {true, true},
+          {true, false},
+          {false, true},
+          {true, false},
+          {true, false},
+          {false, true}
+        ]
+        |> Day2.checksum()
     end
   end
 end
