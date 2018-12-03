@@ -35,7 +35,7 @@ defmodule Day2Test do
         ]
         |> Day2.checksum()
 
-      assert checksum == checksum
+      assert checksum == 12
     end
   end
 end
