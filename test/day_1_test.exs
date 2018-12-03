@@ -50,5 +50,10 @@ defmodule AdventTest do
       frequency = [-6, +3, +8, +5, -6] |> Day1.frequency()
       assert frequency == 5
     end
+
+    test "fourth example" do
+      frequency = [+7, +7, -2, -7, -4] |> Day1.frequency()
+      assert frequency == 14
+    end
   end
 end
