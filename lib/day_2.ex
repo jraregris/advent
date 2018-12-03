@@ -1,9 +1,12 @@
 defmodule Day2 do
   def repeats(n) do
-    n
-    |> String.graphemes()
-    |> Enum.sort()
-    |> IO.inspect()
+    groups =
+      n
+      |> String.graphemes()
+      |> Enum.sort()
+      |> Enum.chunk_by(fn x -> x end)
+      |> Enum.map(fn x -> length(x) end)
+      |> IO.inspect()
 
     {false, false}
   end
