@@ -25,6 +25,8 @@ defmodule AdventTest do
 
   describe "features" do
     test "one number" do
+      frequency = [1] |> Day1.calibrate()
+      assert frequency == frequency
     end
   end
 end
