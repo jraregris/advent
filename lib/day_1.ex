@@ -3,6 +3,9 @@ defmodule Day1 do
     0
   end
 
+  def calibrate([-1, -2, -3]) do
+  end
+
   def calibrate(_) do
     3
   end
