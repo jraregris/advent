@@ -14,8 +14,4 @@ defmodule Day1 do
   def calibrate([h | tail]) do
     h + calibrate(tail)
   end
-
-  def calibrate(_) do
-    3
-  end
 end
