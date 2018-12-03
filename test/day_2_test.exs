@@ -16,5 +16,9 @@ defmodule Day2Test do
       repeats = "abcccd" |> Day2.repeats()
       assert repeats == {false, true}
     end
+
+    test "checksum" do
+      checksum = [{false, true}, {true, true}] |> Day2.checksum()
+    end
   end
 end

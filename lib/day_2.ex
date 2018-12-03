@@ -9,4 +9,7 @@ defmodule Day2 do
 
     {groups |> Enum.member?(2), groups |> Enum.member?(3)}
   end
+
+  def checksum(l) do
+  end
 end
