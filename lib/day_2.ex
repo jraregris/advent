@@ -1,5 +1,5 @@
 defmodule Day2 do
   def repeats(n) do
-    {0, 0}
+    {false, false}
   end
 end

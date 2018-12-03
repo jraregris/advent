@@ -4,12 +4,12 @@ defmodule Day2Test do
   describe "features" do
     test "no repeats" do
       repeats = "abcdef" |> Day2.repeats()
-      assert repeats == {0, 0}
+      assert repeats == {false, false}
     end
 
     test "repeat twice" do
       repeats = "abcdee" |> Day2.repeats()
-      assert repeats == {0, 0}
+      assert repeats == {false, false}
     end
   end
 end
