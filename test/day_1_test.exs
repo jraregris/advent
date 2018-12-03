@@ -22,4 +22,9 @@ defmodule AdventTest do
       assert frequency == -6
     end
   end
+
+  describe "features" do
+    test "one number" do
+    end
+  end
 end
