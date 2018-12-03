@@ -8,7 +8,9 @@ defmodule Day1 do
   end
 
   def frequency(n) do
-    Stream.cycle(n) |> IO.inspect()
+    {:ok, frequencies} = Freqs.start()
+    {:ok, changes} = Change.start(n)
+
     0
   end
 end
