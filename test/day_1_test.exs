@@ -10,4 +10,9 @@ defmodule AdventTest do
     frequency = [+1, +1, +1] |> Day1.calibrate()
     assert 3 == frequency
   end
+
+  test "third example" do
+    frequency = [+1, +1, +1] |> Day1.calibrate()
+    assert 3 == frequency
+  end
 end
