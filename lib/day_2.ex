@@ -11,5 +11,10 @@ defmodule Day2 do
   end
 
   def checksum(l) do
+    Enum.reduce(l, {0, 0}, fn {twice?, thrice?}, {n_twice, n_thrice} ->
+      twice = if twice?, do: n_twice + 1, else: n_twice
+      thrice = if thrice?, do: n_thrice + 1, else: n_thrice
+      {twice, thrice}
+    end)
   end
 end
