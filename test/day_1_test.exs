@@ -7,5 +7,6 @@ defmodule AdventTest do
   end
 
   test "second example" do
+    frequency = [+1, +1, -2] |> Day1.calibrate()
   end
 end
