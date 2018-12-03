@@ -32,6 +32,7 @@ defmodule Day2Test do
         {true, false},
         {false, true}
       ]
+      |> Day2.checksum()
     end
   end
 end
