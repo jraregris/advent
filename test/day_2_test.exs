@@ -19,6 +19,7 @@ defmodule Day2Test do
 
     test "checksum" do
       checksum = [{false, true}, {true, true}] |> Day2.checksum()
+      assert checksum == 2
     end
   end
 end
