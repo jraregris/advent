@@ -1,0 +1,1 @@
+mix test --exclude pending && git commit -m $1 || git reset --hard && mix test --only pending
