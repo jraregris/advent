@@ -1,6 +1,6 @@
 defmodule Day1 do
-  def calibrate([n]) do
-    n
+  def calibrate([]) do
+    0
   end
 
   def calibrate([h | tail]) do
