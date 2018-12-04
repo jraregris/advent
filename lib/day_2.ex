@@ -13,11 +13,14 @@ defmodule Day2 do
   def checksum(l) do
     l
     |> Enum.map(&repeats/1)
-    |> Enum.reduce({0, 0}, fn {twice?, thrice?}, {n_twice, n_thrice} ->
-      twice = if twice?, do: n_twice + 1, else: n_twice
-      thrice = if thrice?, do: n_thrice + 1, else: n_thrice
-      {twice, thrice}
-    end)
+    |> Enum.reduce(
+      {0, 0},
+      fn {twice?, thrice?}, {n_twice, n_thrice} ->
+        twice = if twice?, do: n_twice + 1, else: n_twice
+        thrice = if thrice?, do: n_thrice + 1, else: n_thrice
+        {twice, thrice}
+      end
+    )
     |> (fn {twi, thri} -> twi * thri end).()
   end
 end
