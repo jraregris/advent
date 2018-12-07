@@ -45,5 +45,7 @@ defmodule Day2 do
   end
 
   def permutations(list) do
+    for a <- list,
+        do: for(b <- list -- a, do: {a, b})
   end
 end
