@@ -44,7 +44,7 @@ defmodule Day2 do
     l
     |> permutations()
     |> Enum.find(fn {a, b} ->
-      difference(a, b)
+      difference(a, b) == 1
     end)
     |> IO.inspect()
   end
