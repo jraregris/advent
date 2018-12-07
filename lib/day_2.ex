@@ -32,7 +32,7 @@ defmodule Day2 do
     |> (fn {twi, thri} -> twi * thri end).()
   end
 
-  def diff(a, b) do
+  def difference(a, b) do
     String.myers_difference(a, b)
   end
 end
