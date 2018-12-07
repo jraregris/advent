@@ -38,6 +38,7 @@ defmodule Day2Test do
       assert checksum == 12
     end
 
+    @tag :pending
     test "difference" do
     end
   end
