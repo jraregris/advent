@@ -54,7 +54,7 @@ defmodule Day2 do
           {a, b}
         end
       end
-      |> Enum.join()
+      |> Kernel.++()
 
     hokn |> IO.inspect()
   end
