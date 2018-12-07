@@ -32,6 +32,6 @@ defmodule Day2 do
     |> (fn {twi, thri} -> twi * thri end).()
   end
 
-  def diff() do
+  def diff(a, b) do
   end
 end
