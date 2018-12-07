@@ -55,6 +55,9 @@ defmodule Day2 do
         end
       end
       |> Enum.concat()
+      |> Enum.uniq_by(fn {a, b} ->
+        [a, b] |> Enum.sort()
+      end)
 
     hokn |> IO.inspect()
   end
