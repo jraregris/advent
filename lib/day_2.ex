@@ -40,8 +40,8 @@ defmodule Day2 do
     |> Enum.count(fn {a, b} -> a != b end)
   end
 
-  def differ_by_one(l) do
-    l
+  def differ_by_one(list) do
+    list
     |> permutations()
     |> Enum.find(fn {a, b} ->
       difference(a, b) == 1
