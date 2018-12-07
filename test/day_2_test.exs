@@ -49,7 +49,7 @@ defmodule Day2Test do
     end
 
     @tag :pending
-    test "least different" do
+    test "differ by one" do
     end
   end
 end
