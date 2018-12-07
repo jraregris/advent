@@ -44,13 +44,6 @@ defmodule Day2 do
     l |> permutations()
   end
 
-  def permutations([]), do: [[]]
-
-  def permutations(list),
-    do:
-      for(
-        elem <- list,
-        rest <- permutations(list -- [elem]),
-        do: [elem | rest]
-      )
+  def permutations(list) do
+  end
 end
