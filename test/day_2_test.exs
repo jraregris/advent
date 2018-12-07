@@ -37,5 +37,8 @@ defmodule Day2Test do
 
       assert checksum == 12
     end
+
+    test "difference" do
+    end
   end
 end
