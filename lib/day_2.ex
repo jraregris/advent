@@ -44,7 +44,6 @@ defmodule Day2 do
     l
     |> permutations()
     |> Enum.min(fn {a, b} -> difference(a, b) end)
-    |> Enum.flat_map()
   end
 
   def permutations(list) do
