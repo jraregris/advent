@@ -42,5 +42,8 @@ defmodule Day2Test do
       diff = Day2.difference("abcde", "axcye")
       assert diff == 2
     end
+
+    test "more difference" do
+    end
   end
 end
