@@ -40,6 +40,6 @@ defmodule Day2 do
     |> Enum.count(fn {a, b} -> a != b end)
   end
 
-  def differ_by_one(a) do
+  def differ_by_one(l) do
   end
 end
