@@ -18,7 +18,10 @@ defmodule Day2Test do
     end
 
     test "checksum2" do
-      checksum = ["abcdefgg", "abbcdeee"] |> Day2.checksum()
+      checksum =
+        ["abcdefgg", "abbcdeee"]
+        |> Day2.checksum()
+
       assert checksum == 2
     end
 
@@ -50,6 +53,16 @@ defmodule Day2Test do
 
     @tag :pending
     test "differ by one" do
+      {a, b} =
+        Day2.differ_by_one([
+          "abcde",
+          "fghij",
+          "klmno",
+          "pqrst",
+          "fguij",
+          "axcye",
+          "wvxyz"
+        ])
     end
   end
 end
