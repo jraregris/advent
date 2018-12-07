@@ -51,7 +51,6 @@ defmodule Day2Test do
       assert diff == 1
     end
 
-    @tag :pending
     test "differ by one" do
       {a, b} =
         Day2.differ_by_one([
