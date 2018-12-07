@@ -41,5 +41,6 @@ defmodule Day2 do
   end
 
   def differ_by_one(l) do
+    {1, 2}
   end
 end
