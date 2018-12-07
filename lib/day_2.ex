@@ -44,6 +44,7 @@ defmodule Day2 do
     l
     |> permutations()
     |> Enum.map(fn {a, b} -> difference(a, b) end)
+    |> Enum.min()
     |> IO.inspect()
   end
 
