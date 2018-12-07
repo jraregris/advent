@@ -46,7 +46,7 @@ defmodule Day2Test do
     @tag :pending
     test "more difference" do
       diff = Day2.difference("fghij", "fguij")
-      assert diff == 2
+      assert diff == 1
     end
   end
 end
