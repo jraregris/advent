@@ -7,7 +7,8 @@ defmodule Day2 do
       |> Enum.chunk_by(fn x -> x end)
       |> Enum.map(fn x -> length(x) end)
 
-    {groups |> Enum.member?(2), groups |> Enum.member?(3)}
+    {groups |> Enum.member?(2),
+     groups |> Enum.member?(3)}
   end
 
   def checksum(l) do
@@ -37,5 +38,8 @@ defmodule Day2 do
     |> Enum.map(&String.graphemes/1)
     |> Enum.zip()
     |> Enum.count(fn {a, b} -> a != b end)
+  end
+
+  def differ_by_one(a) do
   end
 end
