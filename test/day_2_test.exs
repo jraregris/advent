@@ -43,6 +43,7 @@ defmodule Day2Test do
       assert diff == 2
     end
 
+    @tag :pending
     test "more difference" do
       diff = Day2.difference("abcde", "axcye")
       assert diff == 2
