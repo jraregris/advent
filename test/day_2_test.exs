@@ -63,6 +63,9 @@ defmodule Day2Test do
           "axcye",
           "wvxyz"
         ])
+
+      assert a == "fghij"
+      assert b == "fguij"
     end
   end
 end
