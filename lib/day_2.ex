@@ -49,9 +49,15 @@ defmodule Day2 do
 
   def permutations(list) do
     hokn =
-      for a <- list,
-          do: for(b <- list -- [a], do: {a, b})
+      for a <- list do
+        [metch] =
+          for b <- list -- [a] do
+            {a, b}
+          end
 
-    hokn |> IO.inspect()
+        metch |> IO.inspect()
+      end
+
+    hokn
   end
 end
