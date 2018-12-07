@@ -41,7 +41,9 @@ defmodule Day2 do
   end
 
   def differ_by_one(l) do
-    l |> permutations()
+    l
+    |> permutations()
+    |> Enum.min(fn {a, b} -> difference(a, b) end)
   end
 
   def permutations(list) do
