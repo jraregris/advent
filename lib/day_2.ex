@@ -48,17 +48,14 @@ defmodule Day2 do
   end
 
   def permutations(list) do
-    hokn =
-      for a <- list do
-        for b <- list -- [a] do
-          {a, b}
-        end
+    for a <- list do
+      for b <- list -- [a] do
+        {a, b}
       end
-      |> Enum.concat()
-      |> Enum.uniq_by(fn {a, b} ->
-        [a, b] |> Enum.sort()
-      end)
-
-    hokn |> IO.inspect()
+    end
+    |> Enum.concat()
+    |> Enum.uniq_by(fn {a, b} ->
+      [a, b] |> Enum.sort()
+    end)
   end
 end
