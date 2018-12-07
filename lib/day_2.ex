@@ -36,5 +36,6 @@ defmodule Day2 do
     [a, b]
     |> Enum.map(&String.graphemes/1)
     |> Enum.zip()
+    |> Enum.count(&(&1 != &2))
   end
 end
