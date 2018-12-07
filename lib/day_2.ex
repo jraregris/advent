@@ -50,7 +50,7 @@ defmodule Day2 do
   def permutations(list) do
     hokn =
       for a <- list do
-        [metch] =
+        metch =
           for b <- list -- [a] do
             {a, b}
           end
