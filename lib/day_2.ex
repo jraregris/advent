@@ -43,7 +43,7 @@ defmodule Day2 do
   def differ_by_one(l) do
     l
     |> permutations()
-    |> Enum.min(fn {a, b} -> difference(a, b) end)
+    |> Enum.map(fn {a, b} -> difference(a, b) end)
     |> IO.inspect()
   end
 
