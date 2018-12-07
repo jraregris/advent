@@ -33,6 +33,6 @@ defmodule Day2 do
   end
 
   def difference(a, b) do
-    String.myers_difference(a, b)
+    [a, b] |> Enum.map(&String.graphemes/1)
   end
 end
