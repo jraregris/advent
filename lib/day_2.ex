@@ -53,8 +53,8 @@ defmodule Day2 do
         for b <- list -- [a] do
           {a, b}
         end
-        |> Enum.join()
       end
+      |> Enum.join()
 
     hokn |> IO.inspect()
   end
