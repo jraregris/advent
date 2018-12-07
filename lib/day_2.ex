@@ -33,5 +33,6 @@ defmodule Day2 do
   end
 
   def diff(a, b) do
+    String.myers_difference(a, b)
   end
 end
