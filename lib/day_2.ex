@@ -41,6 +41,16 @@ defmodule Day2 do
   end
 
   def differ_by_one(l) do
-    {1, 2}
+    l |> permutations()
   end
+
+  def permutations([]), do: [[]]
+
+  def permutations(list),
+    do:
+      for(
+        elem <- list,
+        rest <- permutations(list -- [elem]),
+        do: [elem | rest]
+      )
 end
