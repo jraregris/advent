@@ -50,14 +50,12 @@ defmodule Day2 do
   def permutations(list) do
     hokn =
       for a <- list do
-        metch =
-          for b <- list -- [a] do
-            {a, b}
-          end
-
-        metch |> IO.inspect()
+        for b <- list -- [a] do
+          {a, b}
+        end
       end
+      |> Enum.join()
 
-    hokn
+    hokn |> IO.inspect()
   end
 end
