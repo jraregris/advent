@@ -3,6 +3,6 @@ defmodule Day4Test do
 
   @tag :pending
   test "wrong" do
-    assert 1 == 2
+    assert 1 == 1
   end
 end
