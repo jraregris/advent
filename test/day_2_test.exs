@@ -47,5 +47,9 @@ defmodule Day2Test do
       diff = Day2.difference("fghij", "fguij")
       assert diff == 1
     end
+
+    @tag :pending
+    test "least different" do
+    end
   end
 end
