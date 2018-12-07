@@ -33,6 +33,8 @@ defmodule Day2 do
   end
 
   def difference(a, b) do
-    [a, b] |> Enum.map(&String.graphemes/1)
+    [a, b]
+    |> Enum.map(&String.graphemes/1)
+    |> ENum.map()
   end
 end
