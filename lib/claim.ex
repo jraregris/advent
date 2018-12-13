@@ -1,3 +1,3 @@
 defmodule Claim do
-  defstruct [:id, :pos]
+  defstruct [:id, :position]
 end
