@@ -14,6 +14,6 @@ defmodule Day3Test do
   @tag :pending
   test "parse claim width" do
     claim = Day3.parse("#123 @ 3,2: 5x4")
-    assert claim.width == 5
+    assert claim.size == {5, 4}
   end
 end
