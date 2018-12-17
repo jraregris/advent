@@ -16,8 +16,7 @@ defmodule Day1 do
     go_nuts(changes, frequencies, 0)
   end
 
-  @spec go_nuts(pid(), pid(), number()) ::
-          number()
+  @spec go_nuts(pid(), pid(), number()) :: number()
   def go_nuts(changes, frequencies, sum) do
     next_change = changes |> Change.next()
     new_sum = sum + next_change
