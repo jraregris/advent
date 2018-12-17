@@ -1,4 +1,6 @@
 defmodule Day2 do
+  @spec repeats(binary()) ::
+          {boolean(), boolean()}
   def repeats(n) do
     groups =
       n
@@ -11,7 +13,7 @@ defmodule Day2 do
      groups |> Enum.member?(3)}
   end
 
-  def checksum(l) do
+  def checksum(l) when is_list(l) do
     l
     |> Enum.map(&repeats/1)
     |> Enum.reduce(
