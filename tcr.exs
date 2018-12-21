@@ -75,6 +75,7 @@ defmodule TCR do
 
   def revert() do
     {output, status} = System.cmd("git", ["reset", "--hard"])
+    output(:error, "Reverting HARD!")
   end
 end
 
