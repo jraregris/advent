@@ -38,6 +38,9 @@ defmodule TCR do
     output(:error, "Reverting HARD!")
   end
 
+  def pending() do
+  end
+
   defp puts_error(error) do
     cond do
       Regex.match?(~r/nothing to commit/, error) ->
@@ -71,3 +74,5 @@ end
 if test == :fail do
   TCR.revert()
 end
+
+TCR.pending()
