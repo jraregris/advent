@@ -35,6 +35,14 @@ defmodule TCR do
 
     case {output, status} do
       {_, 0} -> :ok
+      {error, 1} -> {:error, puts_error(error)}
+    end
+  end
+
+  defp puts_error(error) do
+    case error do
+      ~r/nothing to commit, working tree clean/ ->
+        IO.puts("Empty commit!")
     end
   end
 end
