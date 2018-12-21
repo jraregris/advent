@@ -8,17 +8,11 @@ defmodule TCR do
 
     if(status == 0) do
       output(:ok, "Test OK")
+      :ok
     else
       output(:error, "Test FAIL!")
       IO.puts(cmd_output)
-    end
-
-    case status do
-      0 ->
-        :ok
-
-      _ ->
-        :fail
+      :fail
     end
   end
 
