@@ -31,9 +31,11 @@ defmodule TCR do
 
     IO.ANSI.format([:inverse, "COMMIT - COMMIT"]) |> IO.puts()
 
-    {output, status} =
-      System.cmd("git", ["commit", "--message", "tcr"])
-      |> IO.inspect()
+    {output, status} = System.cmd("git", ["commit", "--message", "tcr"])
+
+    case {output, status} do
+      {_, 0} -> :ok
+    end
   end
 end
 
