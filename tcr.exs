@@ -85,6 +85,6 @@ if test == :ok do
   TCR.commit()
 end
 
-if test == :failure do
+if test == :fail do
   TCR.revert()
 end
