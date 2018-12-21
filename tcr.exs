@@ -4,10 +4,13 @@ defmodule TCR do
   end
 
   def test() do
-    {_, status} = System.cmd("mix", ["test"])
+    {cmd_output, status} = System.cmd("mix", ["test"])
 
     if(status == 0) do
       output(:ok, "Test OK")
+    else
+      output(:error, "Test FAIL!")
+      IO.puts(cmd_output)
     end
 
     case status do
@@ -66,6 +69,10 @@ defmodule TCR do
 
   defp output(:ok, msg) do
     IO.ANSI.format([:green, msg]) |> IO.puts()
+  end
+
+  defp output(:error, msg) do
+    IO.ANSI.format([:red, msg]) |> IO.puts()
   end
 
   defp output(:info, msg) do
