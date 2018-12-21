@@ -74,7 +74,7 @@ defmodule TCR do
   end
 
   def revert() do
-    {output, status} = System.cmd("git", ["revert", "--hard"])
+    {output, status} = System.cmd("git", ["reset", "--hard"])
   end
 end
 
