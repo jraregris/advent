@@ -48,7 +48,7 @@ defmodule TCR do
         System.cmd("mix", ["test", "--only", "pending", "--color"])
 
       if(status == 0) do
-        output(:ok, "Pending test is green, remove pending tag!")
+        output(:ok, "Pending test OK, remove pending tag!")
       end
     end
   end
