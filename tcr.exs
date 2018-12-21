@@ -26,6 +26,10 @@ defmodule TCR do
 
     {output, status} = System.cmd("git", ["commit", "--message", commit_msg])
 
+    if(status == 0) do
+      output(:info, "Commit: " <> commit_msg)
+    end
+
     case {output, status} do
       {_, 0} -> :ok
       {error, 1} -> {:error, puts_error(error)}
