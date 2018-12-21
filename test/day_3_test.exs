@@ -15,9 +15,4 @@ defmodule Day3Test do
     claim = Day3.parse("#123 @ 3,2: 5x4")
     assert claim.size == {5, 4}
   end
-
-  test "parse claim width honk" do
-    claim = Day3.parse("#123 @ 3,2: 5x4")
-    assert claim.size == {5, 4}
-  end
 end
