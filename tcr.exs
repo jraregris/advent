@@ -67,6 +67,10 @@ defmodule TCR do
   defp output(:ok, msg) do
     IO.ANSI.format([:green, msg]) |> IO.puts()
   end
+
+  defp output(:info, msg) do
+    IO.ANSI.format([msg]) |> IO.puts()
+  end
 end
 
 TCR.clear()
