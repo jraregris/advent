@@ -73,7 +73,7 @@ defmodule TCR do
     IO.ANSI.format([msg]) |> IO.puts()
   end
 
-  defp revert() do
+  def revert() do
     {output, status} = System.cmd("git", ["revert", "--hard"])
   end
 end
