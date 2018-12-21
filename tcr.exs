@@ -3,9 +3,7 @@ defmodule TCR do
     IO.ANSI.format([:clear, :home]) |> IO.write()
   end
 
-  def test(opts \\ %{pending: false}) do
-    pending = opts[:pending]
-
+  def test() do
     IO.ANSI.format([:inverse, "TEST"]) |> IO.puts()
 
     {_, status} =
@@ -39,17 +37,28 @@ defmodule TCR do
     end
   end
 
+  @messages [{~r/nothing to commit/, :nothing_to_commit}]
+
   defp puts_error(error) do
-    case error do
-      ~r/nothing to commit, working tree clean/ ->
-        IO.puts("Empty commit!")
-    end
+    error |> parse_error |> format_error |> IO.puts()
   end
+
+  defp parse_error(error) do
+    {_, type} =
+      Enum.find(
+        @messages,
+        fn {reg, type} ->
+          String.match?(error, reg)
+        end
+      )
+  end
+
+  defp format_error(:nothing_to_commit), do: "Nothing to commit"
 end
 
 TCR.clear()
 test = TCR.test()
 
 if test == :ok do
-  commit = TCR.commit() |> IO.inspect()
+  TCR.commit() |> IO.inspect()
 end
