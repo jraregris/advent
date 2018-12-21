@@ -40,14 +40,14 @@ defmodule TCR do
   @messages [{~r/nothing to commit/, :nothing_to_commit}]
 
   defp puts_error(error) do
-    error |> parse_error |> format_error |> IO.puts()
+    error |> parse_error() |> format_error() |> output()
   end
 
   defp parse_error(error) do
     {_, type} =
       Enum.find(
         @messages,
-        fn {reg, type} ->
+        fn {reg, _} ->
           String.match?(error, reg)
         end
       )
@@ -55,7 +55,11 @@ defmodule TCR do
     type
   end
 
-  defp format_error(:nothing_to_commit), do: "Nothing to commit"
+  defp format_error(:nothing_to_commit), do: {:warning, "Nothing to commit"}
+
+  defp output({:warning, msg}) do
+    IO.ANSI.format([:yellow, msg]) |> IO.puts()
+  end
 end
 
 TCR.clear()
