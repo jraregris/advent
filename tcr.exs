@@ -26,7 +26,10 @@ defmodule TCR do
 
   def commit() do
     IO.ANSI.format([:inverse, "COMMIT"]) |> IO.puts()
-    System.cmd("git", ["add", "."], into: IO.stream(:stdio, 1)) |> IO.inspect()
+
+    {_, 0} =
+      System.cmd("git", ["add", "."], into: IO.stream(:stdio, 1))
+      |> IO.inspect()
 
     System.cmd("git", ["commit", "--message", "tcr"], into: IO.stream(:stdio, 1))
     |> IO.inspect()
