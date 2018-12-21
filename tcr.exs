@@ -47,6 +47,8 @@ defmodule TCR do
 
       if(status == 0) do
         output(:ok, "Pending test OK, remove pending tag!")
+      else
+        IO.puts(output)
       end
     end
   end
