@@ -40,7 +40,10 @@ defmodule TCR do
   @messages [{~r/nothing to commit/, :nothing_to_commit}]
 
   defp puts_error(error) do
-    error |> parse_error() |> format_msg() |> output()
+    cond do
+      Regex.match?(~r/nothing to commit/, error) ->
+        output(:warn, "Nothing to commit")
+    end
   end
 
   defp parse_error(error) do
