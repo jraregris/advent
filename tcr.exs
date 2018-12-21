@@ -37,28 +37,12 @@ defmodule TCR do
     output(:error, "Reverting HARD!")
   end
 
-  @messages [{~r/nothing to commit/, :nothing_to_commit}]
-
   defp puts_error(error) do
     cond do
       Regex.match?(~r/nothing to commit/, error) ->
         output(:warning, "Nothing to commit")
     end
   end
-
-  defp parse_error(error) do
-    {_, type} =
-      Enum.find(
-        @messages,
-        fn {reg, _} ->
-          String.match?(error, reg)
-        end
-      )
-
-    type
-  end
-
-  defp format_msg(:nothing_to_commit), do: {:warning, "Nothing to commit"}
 
   defp output({type, msg}) do
     output(type, msg)
