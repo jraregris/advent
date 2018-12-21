@@ -39,7 +39,7 @@ defmodule TCR do
   end
 
   def pending() do
-    {_, status} = System.cmd("grep", "--recursive", "@tag :pending", "test")
+    {_, status} = System.cmd("grep", ["--recursive", "@tag :pending", "test"])
 
     if status == 0 do
       System.cmd("mix", ["test", "--only", "pending", "--color"],
