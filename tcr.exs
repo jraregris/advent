@@ -4,8 +4,6 @@ defmodule TCR do
   end
 
   def test() do
-    IO.ANSI.format([:inverse, "TEST"]) |> IO.puts()
-
     {_, status} = System.cmd("mix", ["test"])
 
     if(status == 0) do
@@ -22,8 +20,6 @@ defmodule TCR do
   end
 
   def commit() do
-    IO.ANSI.format([:inverse, "COMMIT"]) |> IO.puts()
-
     {_, 0} = System.cmd("git", ["add", "."], into: "")
 
     {output, status} = System.cmd("git", ["commit", "--message", "tcr"])
