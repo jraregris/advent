@@ -22,7 +22,9 @@ defmodule TCR do
   def commit() do
     {_, 0} = System.cmd("git", ["add", "."], into: "")
 
-    {output, status} = System.cmd("git", ["commit", "--message", "tcr"])
+    commit_msg = "tcr"
+
+    {output, status} = System.cmd("git", ["commit", "--message", commit_msg])
 
     case {output, status} do
       {_, 0} -> :ok
