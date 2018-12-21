@@ -10,7 +10,6 @@ defmodule TCR do
       output(:ok, "Test OK")
       :ok
     else
-      output(:error, "Test FAIL!")
       IO.puts(cmd_output)
       :fail
     end
