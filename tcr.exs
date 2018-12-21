@@ -47,10 +47,6 @@ defmodule TCR do
     end
   end
 
-  defp output({type, msg}) do
-    output(type, msg)
-  end
-
   defp output(:warning, msg) do
     IO.ANSI.format([:yellow, msg]) |> IO.puts()
   end
