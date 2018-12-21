@@ -32,6 +32,11 @@ defmodule TCR do
     end
   end
 
+  def revert() do
+    {output, status} = System.cmd("git", ["reset", "--hard"])
+    output(:error, "Reverting HARD!")
+  end
+
   @messages [{~r/nothing to commit/, :nothing_to_commit}]
 
   defp puts_error(error) do
@@ -70,11 +75,6 @@ defmodule TCR do
 
   defp output(:info, msg) do
     IO.ANSI.format([msg]) |> IO.puts()
-  end
-
-  def revert() do
-    {output, status} = System.cmd("git", ["reset", "--hard"])
-    output(:error, "Reverting HARD!")
   end
 end
 
