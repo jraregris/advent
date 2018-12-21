@@ -66,5 +66,5 @@ TCR.clear()
 test = TCR.test()
 
 if test == :ok do
-  TCR.commit() |> IO.inspect()
+  TCR.commit()
 end
