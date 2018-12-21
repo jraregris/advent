@@ -6,12 +6,7 @@ defmodule TCR do
   def test() do
     IO.ANSI.format([:inverse, "TEST"]) |> IO.puts()
 
-    {_, status} =
-      System.cmd(
-        "mix",
-        ["test"],
-        into: IO.stream(:stdio, 1)
-      )
+    {_, status} = System.cmd("mix", ["test"])
 
     if(status == 0) do
       output(:ok, "Test OK")
