@@ -51,6 +51,8 @@ defmodule TCR do
           String.match?(error, reg)
         end
       )
+
+    type
   end
 
   defp format_error(:nothing_to_commit), do: "Nothing to commit"
