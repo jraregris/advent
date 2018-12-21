@@ -39,6 +39,13 @@ defmodule TCR do
   end
 
   def pending() do
+    {_, status} = System.cmd("grep", "--recursive", "@tag :pending", "test")
+
+    if status == 0 do
+      System.cmd("mix", ["test", "--only", "pending", "--color"],
+        into: IO.stream(:stdio, :line)
+      )
+    end
   end
 
   defp puts_error(error) do
