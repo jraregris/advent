@@ -4,7 +4,7 @@ defmodule TCR do
   end
 
   def test() do
-    {cmd_output, status} = System.cmd("mix", ["test"])
+    {cmd_output, status} = System.cmd("mix", ["test", "--color"])
 
     if(status == 0) do
       output(:ok, "Test OK")
