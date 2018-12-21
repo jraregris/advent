@@ -13,6 +13,10 @@ defmodule TCR do
         into: IO.stream(:stdio, 1)
       )
 
+    if(status == 0) do
+      output(:ok, "Test OK")
+    end
+
     case status do
       0 ->
         :ok
@@ -38,7 +42,7 @@ defmodule TCR do
   @messages [{~r/nothing to commit/, :nothing_to_commit}]
 
   defp puts_error(error) do
-    error |> parse_error() |> format_error() |> output()
+    error |> parse_error() |> format_msg() |> output()
   end
 
   defp parse_error(error) do
@@ -53,10 +57,18 @@ defmodule TCR do
     type
   end
 
-  defp format_error(:nothing_to_commit), do: {:warning, "Nothing to commit"}
+  defp format_msg(:nothing_to_commit), do: {:warning, "Nothing to commit"}
 
-  defp output({:warning, msg}) do
+  defp output({type, msg}) do
+    output(type, msg)
+  end
+
+  defp output(:warning, msg) do
     IO.ANSI.format([:yellow, msg]) |> IO.puts()
+  end
+
+  defp output(:ok, msg) do
+    IO.ANSI.format([:green, msg]) |> IO.puts()
   end
 end
 
