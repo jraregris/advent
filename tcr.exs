@@ -41,6 +41,9 @@ defmodule TCR do
     cond do
       Regex.match?(~r/nothing to commit/, error) ->
         output(:warning, "Nothing to commit")
+
+      true ->
+        IO.puts(error)
     end
   end
 
