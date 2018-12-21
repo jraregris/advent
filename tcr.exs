@@ -23,11 +23,9 @@ defmodule TCR do
   end
 
   def commit() do
-    IO.ANSI.format([:inverse, "COMMIT - ADD"]) |> IO.puts()
+    IO.ANSI.format([:inverse, "COMMIT"]) |> IO.puts()
 
     {_, 0} = System.cmd("git", ["add", "."], into: "")
-
-    IO.ANSI.format([:inverse, "COMMIT - COMMIT"]) |> IO.puts()
 
     {output, status} = System.cmd("git", ["commit", "--message", "tcr"])
 
