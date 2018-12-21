@@ -44,9 +44,12 @@ defmodule TCR do
     if status == 0 do
       output(:warning, "Pending test(s):")
 
-      System.cmd("mix", ["test", "--only", "pending", "--color"],
-        into: IO.stream(:stdio, :line)
-      )
+      {output, status} =
+        System.cmd("mix", ["test", "--only", "pending", "--color"])
+
+      if(status == 0) do
+        output(:ok, "Pending test is green, remove pending tag!")
+      end
     end
   end
 
