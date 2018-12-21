@@ -86,3 +86,7 @@ test = TCR.test()
 if test == :ok do
   TCR.commit()
 end
+
+if test == :failure do
+  TCR.revert()
+end
