@@ -89,6 +89,15 @@ defmodule TCR do
     end
 
     TCR.pending()
+
+    choice = IO.gets("Again? Y/n? ")
+
+    yeses = ["\n", "y", "Y", "yes"]
+    nos = ["n", "N", "no"]
+
+    cond do
+      choice in yeses -> TCR.tcr()
+    end
   end
 end
 
