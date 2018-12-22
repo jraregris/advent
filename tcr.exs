@@ -102,4 +102,6 @@ defmodule TCR do
   end
 end
 
+System.argv() |> IO.inspect()
+
 TCR.tcr()
