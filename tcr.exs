@@ -1,6 +1,7 @@
 defmodule TCR do
   def clear() do
     IO.ANSI.format([:clear, :home]) |> IO.write()
+    IO.ANSI.format([:], emit? \\ enabled?())
   end
 
   def test() do
