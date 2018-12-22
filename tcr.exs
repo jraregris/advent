@@ -75,17 +75,21 @@ defmodule TCR do
   defp output(:error, msg) do
     IO.ANSI.format([:red, msg]) |> IO.puts()
   end
+
+  def tcr() do
+    TCR.clear()
+    test = TCR.test()
+
+    if test == :ok do
+      TCR.commit()
+    end
+
+    if test == :fail do
+      TCR.revert()
+    end
+
+    TCR.pending()
+  end
 end
 
-TCR.clear()
-test = TCR.test()
-
-if test == :ok do
-  TCR.commit()
-end
-
-if test == :fail do
-  TCR.revert()
-end
-
-TCR.pending()
+TCR.tcr()
