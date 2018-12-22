@@ -1,2 +1,1 @@
-#!/bin/zsh
-elixir tcr.exs
+elixir tcr.exs $1
