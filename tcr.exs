@@ -33,7 +33,7 @@ defmodule TCR do
   end
 
   defp commit_msg() do
-    System.argv() |> Enum.join()
+    System.argv() |> Enum.join(" ")
   end
 
   def revert() do
