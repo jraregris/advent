@@ -20,9 +20,7 @@ defmodule TCR do
   def commit() do
     {_, 0} = System.cmd("git", ["add", "."], into: "")
 
-    commit_msg = "tcr"
-
-    {output, status} = System.cmd("git", ["commit", "--message", commit_msg])
+    {output, status} = System.cmd("git", ["commit", "--message", commit_msg()])
 
     if(status == 0) do
       IO.puts("Commit: " <> commit_msg)
@@ -32,6 +30,10 @@ defmodule TCR do
       {_, 0} -> :ok
       {error, 1} -> {:error, puts_error(error)}
     end
+  end
+
+  defp commit_msg() do
+    System.argv() |> Enum.join()
   end
 
   def revert() do
@@ -94,8 +96,6 @@ defmodule TCR do
     choice = IO.gets("Again? Y/n? ")
 
     yeses = ["\n", "y\n", "Y\n", "yes\n"]
-
-    System.argv() |> IO.inspect()
 
     cond do
       choice in yeses -> TCR.tcr()
