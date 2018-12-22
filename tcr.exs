@@ -1,7 +1,7 @@
 defmodule TCR do
   def clear() do
     IO.ANSI.format([:clear, :home]) |> IO.write()
-    IO.ANSI.format([:], emit? \\ enabled?())
+    IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string]) |> IO.puts()
   end
 
   def test() do
