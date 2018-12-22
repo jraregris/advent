@@ -97,6 +97,7 @@ defmodule TCR do
 
     cond do
       choice in yeses -> TCR.tcr()
+      true -> nil
     end
   end
 end
