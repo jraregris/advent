@@ -80,7 +80,8 @@ defmodule TCR do
     IO.ANSI.format([:red, msg]) |> IO.puts()
   end
 
-  def tcr(commit_msg) when is_binary(commit_msg) do
+  def tcr(commit_msg: commit_msg) do
+    IO.inspect(commit_msg)
     TCR.clear()
     test = TCR.test()
 
@@ -120,4 +121,4 @@ end
 
 commit_msg = opts[:message] || Enum.join(whatever, " ")
 
-TCR.tcr(commit_msg)
+TCR.tcr(commit_msg: commit_msg)
