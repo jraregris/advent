@@ -99,7 +99,7 @@ defmodule TCR do
     yeses = ["\n", "y\n", "Y\n", "yes\n"]
 
     cond do
-      choice in yeses -> TCR.tcr()
+      choice in yeses -> TCR.tcr(commit_msg)
       true -> nil
     end
   end
