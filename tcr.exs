@@ -94,14 +94,20 @@ defmodule TCR do
 
     TCR.pending()
 
-    choice = IO.gets("Again? Y/n? ")
+    choice = IO.gets("Again? (m for new msg) Y/n? ")
 
     yeses = ["\n", "y\n", "Y\n", "yes\n"]
+    message = ["m", "M"]
 
     cond do
       choice in yeses -> TCR.tcr(commit_msg)
+      choice in message -> TCR.tcr(get_commit_msg())
       true -> nil
     end
+  end
+
+  defp get_commit_msg() do
+    IO.gets("Next commit msg: ")
   end
 end
 
