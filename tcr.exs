@@ -102,7 +102,7 @@ defmodule TCR do
 
     cond do
       choice in yeses ->
-        TCR.tcr(commit_msg)
+        TCR.tcr(commit_msg: commit_msg, verbose: verbose)
 
       choice in message ->
         TCR.tcr(commit_msg: get_commit_msg(), verbose: verbose)
