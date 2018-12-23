@@ -4,11 +4,15 @@ defmodule TCR do
     IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string]) |> IO.puts()
   end
 
-  def test() do
+  def test(verbose: verbose) do
     {cmd_output, status} =
       System.cmd("mix", ["test", "--exclude", "pending", "--color"])
 
     if(status == 0) do
+      if(verbose > 0) do
+        IO.puts(cmd_output)
+      end
+
       output(:ok, "Test OK")
       :ok
     else
@@ -83,7 +87,7 @@ defmodule TCR do
   def tcr(commit_msg: commit_msg, verbose: verbose) do
     IO.inspect(commit_msg)
     TCR.clear()
-    test = TCR.test()
+    test = TCR.test(verbose: verbose)
 
     if test == :ok do
       TCR.commit(commit_msg)
