@@ -1,1 +1,1 @@
-elixir tcr.exs $1
+elixir tcr.exs $*

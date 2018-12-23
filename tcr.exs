@@ -17,10 +17,15 @@ defmodule TCR do
     end
   end
 
-  def commit() do
+  def commit(commit_msg) when is_binary(commit_msg) do
     {_, 0} = System.cmd("git", ["add", "."], into: "")
 
-    {output, status} = System.cmd("git", ["commit", "--message", commit_msg()])
+    {output, status} =
+      System.cmd(
+        "git",
+        ["commit", "--message", commit_msg],
+        stderr_to_stdout: true
+      )
 
     if(status == 0) do
       IO.puts("Commit: " <> commit_msg)
@@ -32,12 +37,8 @@ defmodule TCR do
     end
   end
 
-  defp commit_msg() do
-    System.argv() |> Enum.join(" ") || exit("no commit msg")
-  end
-
   def revert() do
-    {output, status} = System.cmd("git", ["reset", "--hard"])
+    {_, 0} = System.cmd("git", ["reset", "--hard"])
     output(:error, "Reverting HARD!")
   end
 
@@ -79,12 +80,12 @@ defmodule TCR do
     IO.ANSI.format([:red, msg]) |> IO.puts()
   end
 
-  def tcr() do
+  def tcr(commit_msg) when is_binary(commit_msg) do
     TCR.clear()
     test = TCR.test()
 
     if test == :ok do
-      TCR.commit()
+      TCR.commit(commit_msg)
     end
 
     if test == :fail do
@@ -104,4 +105,13 @@ defmodule TCR do
   end
 end
 
-TCR.tcr()
+{opts, whatever, _} =
+  OptionParser.parse(
+    System.argv(),
+    aliases: [v: :verbose, m: :message],
+    switches: [verbose: :count, message: :string]
+  )
+
+commit_msg = opts[:message] || Enum.join(whatever, " ")
+
+TCR.tcr(commit_msg)
