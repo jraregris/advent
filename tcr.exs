@@ -125,6 +125,6 @@ end
   )
 
 commit_msg = opts[:message] || Enum.join(whatever, " ")
-verbose = opts[:verbose] || 0 |> IO.inspect()
+verbose = opts[:verbose] || 0
 
 TCR.tcr(commit_msg: commit_msg, verbose: verbose)
