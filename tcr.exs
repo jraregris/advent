@@ -97,7 +97,7 @@ defmodule TCR do
     choice = IO.gets("Again? (m for new msg) Y/n? ")
 
     yeses = ["\n", "y\n", "Y\n", "yes\n"]
-    message = ["m", "M"]
+    message = ["m\n", "M\n"]
 
     cond do
       choice in yeses -> TCR.tcr(commit_msg)
