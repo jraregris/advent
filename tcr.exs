@@ -85,7 +85,6 @@ defmodule TCR do
   end
 
   def tcr(commit_msg: commit_msg, verbose: verbose) do
-    IO.inspect(commit_msg)
     TCR.clear()
     test = TCR.test(verbose: verbose)
 
