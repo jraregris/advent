@@ -1,4 +1,5 @@
 defmodule Day3 do
+  @spec parse(binary()) :: Claim.t()
   def parse(s) do
     [_, id, x, y, width, height] =
       Regex.run(
@@ -8,12 +9,8 @@ defmodule Day3 do
 
     %Claim{
       id: id,
-      position:
-        {x |> String.to_integer(),
-         y |> String.to_integer()},
-      size:
-        {width |> String.to_integer(),
-         height |> String.to_integer()}
+      position: {x |> String.to_integer(), y |> String.to_integer()},
+      size: {width |> String.to_integer(), height |> String.to_integer()}
     }
   end
 end
