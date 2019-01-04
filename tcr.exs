@@ -216,9 +216,9 @@ defmodule TCR do
     test = TCR.test(verbose: verbose)
 
     Term.timestamp_done(t)
+    Term.status(test)
 
     if test == :ok do
-      Term.status(:ok)
       commit_status = TCR.commit(commit_msg)
 
       case commit_status do
