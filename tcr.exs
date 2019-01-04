@@ -11,16 +11,23 @@ defmodule Term do
   def timestamp do
     t = DateTime.utc_now()
 
-    System.cmd("tput", ["sc"])
+    sc()
 
     IO.ANSI.cursor(0, 0) |> IO.write()
 
     IO.ANSI.format([:light_black, t |> to_string])
     |> IO.write()
 
-    System.cmd("tput", ["rc"])
-
+    rc()
     t
+  end
+
+  def sc do
+    System.cmd("tput", ["sc"])
+  end
+
+  def rc do
+    System.cmd("tput", ["rc"])
   end
 
   def hl() do
