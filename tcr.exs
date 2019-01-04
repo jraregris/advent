@@ -132,8 +132,7 @@ defmodule Term do
 
   def revert(msg) do
     sc()
-    IO.ANSI.cursor(0, 48) |> IO.write()
-    IO.ANSI.format([:red, msg]) |> IO.write()
+    (IO.ANSI.cursor(0, 48) <> IO.ANSI.format([:red, msg])) |> IO.write()
     rc()
   end
 
