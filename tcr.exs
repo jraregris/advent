@@ -7,8 +7,7 @@ end
 
 defmodule TCR do
   def clear() do
-    IO.ANSI.format([:clear, :home]) |> IO.write()
-    IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string]) |> IO.puts()
+    Term.clear()
   end
 
   def test(verbose: verbose) do
