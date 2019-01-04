@@ -14,7 +14,8 @@ defmodule Term do
   end
 
   def timestamp_done(start_time) do
-    IO.ANSI.format([:home, :cursor_down]) |> IO.write()
+    IO.ANSI.format([:home]) |> IO.write()
+    IO.ANSI.cursor_down(1) |> IO.write()
     t = DateTime.utc_now()
 
     IO.ANSI.format([:light_black, t |> to_string]) |> IO.write()
@@ -135,9 +136,11 @@ defmodule TCR do
 
   def tcr(commit_msg: commit_msg, verbose: verbose) do
     Term.clear()
-    Term.timestamp()
+    t = Term.timestamp()
 
     test = TCR.test(verbose: verbose)
+
+    Term.timestamp_done(t)
 
     if test == :ok do
       TCR.commit(commit_msg)
