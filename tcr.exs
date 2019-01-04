@@ -225,10 +225,12 @@ defmodule TCR do
     end
   end
 
-  defp puts_error(error) do
-  end
-
   def tcr(commit_msg: commit_msg, verbose: verbose) do
+    if(commit_msg == "") do
+      Term.error("You need to provide a commit message!")
+      System.halt(1)
+    end
+
     Term.clear()
     Term.commit_msg(commit_msg)
     Term.hl()
@@ -292,7 +294,7 @@ end
     switches: [verbose: :count, message: :string]
   )
 
-commit_msg = opts[:message] || Enum.join(whatever, " ")
+commit_msg = (opts[:message] || Enum.join(whatever)) |> String.trim()
 verbose = opts[:verbose] || 0
 
 TCR.tcr(commit_msg: commit_msg, verbose: verbose)
