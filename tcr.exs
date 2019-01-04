@@ -81,7 +81,7 @@ defmodule Term do
   end
 
   def choice(msg) do
-    IO.ANSI.cursor(0, tcols() - 29) |> IO.write()
+    IO.ANSI.cursor(0, tcols() - 28) |> IO.write()
 
     msg
     |> IO.gets()
