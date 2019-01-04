@@ -1,15 +1,14 @@
 defmodule Term do
   def clear() do
     IO.ANSI.format([:clear, :home]) |> IO.write()
+  end
+
+  def timestamp do
     IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string]) |> IO.puts()
   end
 end
 
 defmodule TCR do
-  def clear() do
-    Term.clear()
-  end
-
   def test(verbose: verbose) do
     {cmd_output, status} =
       System.cmd("mix", ["test", "--exclude", "pending", "--color"])
@@ -91,7 +90,7 @@ defmodule TCR do
   end
 
   def tcr(commit_msg: commit_msg, verbose: verbose) do
-    TCR.clear()
+    Term.clear()
     test = TCR.test(verbose: verbose)
 
     if test == :ok do
