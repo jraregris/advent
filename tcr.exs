@@ -7,10 +7,17 @@ defmodule Term do
   def timestamp do
     t = DateTime.utc_now()
 
+    IO.ANSI.cursor(0, 0)
+
     IO.ANSI.format([:light_black, t |> to_string])
     |> IO.write()
 
     t
+  end
+
+  def commit_msg(msg) do
+    IO.ANSI.cursor(1, 0)
+    IO.ANSI.format([:blue, msg]) |> IO.write()
   end
 
   def timestamp_done(start_time) do
@@ -143,6 +150,7 @@ defmodule TCR do
   def tcr(commit_msg: commit_msg, verbose: verbose) do
     Term.clear()
     t = Term.timestamp()
+    Term.commit_msg(commit_msg)
 
     test = TCR.test(verbose: verbose)
 
