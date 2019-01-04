@@ -187,7 +187,7 @@ defmodule TCR do
 
     TCR.pending()
 
-    prompt(commit_msg)
+    prompt()
     |> case do
       :yes ->
         TCR.tcr(commit_msg: commit_msg, verbose: verbose)
@@ -200,10 +200,8 @@ defmodule TCR do
     end
   end
 
-  defp prompt(commit_msg) do
+  defp prompt() do
     [
-      :blue,
-      commit_msg,
       :reset,
       " Again?",
       :light_black,
