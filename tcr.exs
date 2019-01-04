@@ -222,7 +222,7 @@ defmodule TCR do
       commit_status = TCR.commit(commit_msg)
 
       case commit_status do
-        :ok -> TCR.commit_status(:ok, "Commited OK")
+        :ok -> Term.commit_status(:ok, "Commited OK")
         {:error, error} -> TCR.commit_status(:error, error)
       end
     end
