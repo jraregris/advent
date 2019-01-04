@@ -19,7 +19,8 @@ defmodule Term do
   end
 
   def puts(msg, color) when is_binary(msg) and is_atom(color) do
-    IO.ANSI.format([color, msg]) |> IO.puts()
+    IO.ANSI.format([color, msg])
+    |> IO.puts()
   end
 
   def warn(msg) do
@@ -137,6 +138,20 @@ defmodule TCR do
 
     TCR.pending()
 
+    prompt(commit_msg)
+    |> case do
+      :yes ->
+        TCR.tcr(commit_msg: commit_msg, verbose: verbose)
+
+      :message ->
+        TCR.tcr(commit_msg: get_commit_msg(), verbose: verbose)
+
+      _ ->
+        nil
+    end
+  end
+
+  defp prompt(commit_msg) do
     [
       :blue,
       commit_msg,
@@ -149,16 +164,6 @@ defmodule TCR do
     ]
     |> IO.ANSI.format()
     |> Term.choice()
-    |> case do
-      :yes ->
-        TCR.tcr(commit_msg: commit_msg, verbose: verbose)
-
-      :message ->
-        TCR.tcr(commit_msg: get_commit_msg(), verbose: verbose)
-
-      _ ->
-        nil
-    end
   end
 
   defp get_commit_msg() do
