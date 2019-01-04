@@ -79,7 +79,6 @@ defmodule TCR do
         Term.puts(cmd_output)
       end
 
-      Term.ok("Test OK")
       :ok
     else
       Term.puts(cmd_output)
@@ -147,6 +146,7 @@ defmodule TCR do
     Term.timestamp_done(t)
 
     if test == :ok do
+      Term.ok("Test OK")
       TCR.commit(commit_msg)
     end
 
