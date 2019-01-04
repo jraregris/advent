@@ -23,7 +23,7 @@ defmodule Term do
   end
 
   def status(:ok) do
-    [:green, "Test OK"] |> IO.ANSI.format() |> IO.write()
+    [" ", :green_background, "Test OK"] |> IO.ANSI.format() |> IO.write()
   end
 
   def gets(msg) do
