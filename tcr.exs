@@ -7,7 +7,7 @@ defmodule Term do
   def timestamp do
     t = DateTime.utc_now()
 
-    IO.ANSI.cursor(0, 0)
+    IO.ANSI.cursor(0, 0) |> IO.write()
 
     IO.ANSI.format([:light_black, t |> to_string])
     |> IO.write()
