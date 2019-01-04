@@ -98,7 +98,17 @@ defmodule TCR do
 
     TCR.pending()
 
-    choice = IO.gets("Again? (m for new msg) Y/n? ")
+    choice =
+      [
+        :blue,
+        commit_msg,
+        :reset,
+        "Again?",
+        :light_black,
+        " (m for new msg) Y/n?"
+      ]
+      |> IO.ANSI.format()
+      |> IO.gets()
 
     yeses = ["\n", "y\n", "Y\n", "yes\n"]
     message = ["m\n", "M\n"]
