@@ -16,7 +16,7 @@ defmodule Term do
   end
 
   def commit_msg(msg) do
-    IO.ANSI.cursor(1, 0) |> IO.write()
+    IO.ANSI.cursor(3, 0) |> IO.write()
     IO.ANSI.format([:blue, msg]) |> IO.write()
   end
 
