@@ -41,10 +41,10 @@ defmodule Term do
   end
 
   def commit_msg(msg) do
-    sc
+    sc()
     IO.ANSI.cursor(2, 0) |> IO.write()
     IO.ANSI.format([:blue, msg]) |> IO.write()
-    rc
+    rc()
   end
 
   def timestamp_done(start_time) do
@@ -52,14 +52,14 @@ defmodule Term do
       DateTime.utc_now()
       |> DateTime.diff(start_time, :milliseconds)
 
-    sc
+    sc()
 
     IO.ANSI.cursor(1, 29) |> IO.write()
 
     IO.ANSI.format([" ", duration |> to_string, "ms"])
     |> IO.write()
 
-    rc
+    rc()
   end
 
   def status(status) do
@@ -72,14 +72,14 @@ defmodule Term do
           {:red_background, " TEST FAIL "}
       end
 
-    sc
+    sc()
     IO.ANSI.cursor(1, 35) |> IO.write()
 
     [" ", bg_color, :black, msg]
     |> IO.ANSI.format()
     |> IO.write()
 
-    rc
+    rc()
   end
 
   def gets(msg) do
@@ -109,7 +109,7 @@ defmodule Term do
   end
 
   def commit_status(status, msg) do
-    sc
+    sc()
     IO.ANSI.cursor(0, 48) |> IO.write()
 
     case status do
@@ -127,7 +127,14 @@ defmodule Term do
         end
     end
 
-    rc
+    rc()
+  end
+
+  def revert(msg) do
+    sc()
+    IO.ANSI.cursor(0, 48) |> IO.write()
+    IO.ANSI.format([:red, msg]) |> IO.write()
+    rc()
   end
 
   defp tcols do
@@ -194,7 +201,7 @@ defmodule TCR do
 
   def revert() do
     {_, 0} = System.cmd("git", ["reset", "--hard"])
-    Term.error("Reverting HARD!")
+    Term.revert("Reverting HARD!")
   end
 
   def pending() do
