@@ -25,6 +25,8 @@ defmodule Term do
       DateTime.utc_now()
       |> DateTime.diff(start_time, :milliseconds)
 
+    IO.ANSI.cursor(1, 29) |> IO.write()
+
     IO.ANSI.format([" ", duration |> to_string, "ms"])
     |> IO.write()
   end
