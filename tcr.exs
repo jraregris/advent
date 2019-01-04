@@ -44,7 +44,7 @@ defmodule Term do
     puts(msg, :red)
   end
 
-  def ok(msg) do
+  def ok(msg, newline? \\ false) do
     puts(msg, :green)
   end
 
