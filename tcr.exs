@@ -1,5 +1,7 @@
 defmodule Term do
   def clear() do
+    System.cmd("tput", ["init"])
+
     IO.ANSI.format([:clear, :home])
     |> IO.write()
 
