@@ -19,7 +19,7 @@ defmodule Term do
     IO.ANSI.cursor(3, 0) |> IO.write()
 
     {cols, 0} = System.cmd("tput", ["cols"]) |> IO.inspect()
-    {n, _} = cols |> String.trim() |> Integer.parse()
+    {n, _} = cols |> Integer.parse()
     List.duplicate("─", n) |> Enum.join() |> IO.write()
   end
 
