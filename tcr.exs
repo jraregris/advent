@@ -22,7 +22,7 @@ defmodule Term do
     duration = DateTime.diff(t, start_time, :milliseconds)
 
     IO.ANSI.format([:light_black, t |> to_string, " ", duration |> to_string])
-    |> IO.write()
+    |> IO.puts()
   end
 
   def gets(msg) do
