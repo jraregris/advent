@@ -96,10 +96,6 @@ defmodule TCR do
     end
   end
 
-  defp output(:warning, msg) do
-    Term.warn(msg)
-  end
-
   defp output(:ok, msg) do
     IO.ANSI.format([:green, msg]) |> IO.puts()
   end
