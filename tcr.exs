@@ -25,6 +25,10 @@ defmodule Term do
   def error(msg) do
     puts(msg, :red)
   end
+
+  def ok(msg) do
+    puts(msg, :green)
+  end
 end
 
 defmodule TCR do
@@ -37,7 +41,7 @@ defmodule TCR do
         IO.puts(cmd_output)
       end
 
-      output(:ok, "Test OK")
+      Term.ok("Test OK")
       :ok
     else
       IO.puts(cmd_output)
@@ -67,7 +71,7 @@ defmodule TCR do
 
   def revert() do
     {_, 0} = System.cmd("git", ["reset", "--hard"])
-    output(:error, "Reverting HARD!")
+    Term.error("Reverting HARD!")
   end
 
   def pending() do
@@ -78,7 +82,7 @@ defmodule TCR do
         System.cmd("mix", ["test", "--only", "pending", "--color"])
 
       if(status == 0) do
-        output(:ok, "Pending test OK, remove pending tag!")
+        Term.ok("Pending test OK, remove pending tag!")
       else
         Term.warn("\nPending test(s):")
         IO.puts(output)
@@ -94,14 +98,6 @@ defmodule TCR do
       true ->
         IO.puts(error)
     end
-  end
-
-  defp output(:ok, msg) do
-    IO.ANSI.format([:green, msg]) |> IO.puts()
-  end
-
-  defp output(:error, msg) do
-    IO.ANSI.format([:red, msg]) |> IO.puts()
   end
 
   def tcr(commit_msg: commit_msg, verbose: verbose) do
