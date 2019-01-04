@@ -75,7 +75,7 @@ defmodule Term do
     sc
     IO.ANSI.cursor(1, 35) |> IO.write()
 
-    [" ", :red_background, :black, " Test FAIL "]
+    [" ", bg_color, :black, msg]
     |> IO.ANSI.format()
     |> IO.write()
 
