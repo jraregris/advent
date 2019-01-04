@@ -189,10 +189,6 @@ defmodule TCR do
         stderr_to_stdout: true
       )
 
-    if(status == 0) do
-      Term.puts("Commit: " <> commit_msg)
-    end
-
     case {output, status} do
       {_, 0} -> :ok
       {error, 1} -> {:error, error}
