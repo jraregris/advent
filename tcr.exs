@@ -14,17 +14,11 @@ defmodule Term do
   end
 
   def timestamp_done(start_time) do
-    IO.ANSI.format([:home]) |> IO.write()
-    IO.ANSI.cursor_down(1) |> IO.write()
-
-    t = DateTime.utc_now()
-
-    duration = DateTime.diff(t, start_time, :milliseconds)
+    duration =
+      DateTime.utc_now()
+      |> DateTime.diff(start_time, :milliseconds)
 
     IO.ANSI.format([
-      :light_black,
-      t |> to_string,
-      " ",
       duration |> to_string,
       "ms"
     ])
