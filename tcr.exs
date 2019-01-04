@@ -40,6 +40,8 @@ defmodule Term do
   end
 
   def status(:ok) do
+    IO.ANSI.cursor(1, 35) |> IO.write()
+
     [" ", :green_background, :black, " Test OK "]
     |> IO.ANSI.format()
     |> IO.write()
