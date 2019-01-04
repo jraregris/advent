@@ -6,6 +6,10 @@ defmodule Term do
   def timestamp do
     IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string]) |> IO.puts()
   end
+
+  def gets(msg) do
+    IO.gets(msg) |> String.trim()
+  end
 end
 
 defmodule TCR do
@@ -92,6 +96,7 @@ defmodule TCR do
   def tcr(commit_msg: commit_msg, verbose: verbose) do
     Term.clear()
     Term.timestamp()
+
     test = TCR.test(verbose: verbose)
 
     if test == :ok do
@@ -134,7 +139,7 @@ defmodule TCR do
   end
 
   defp get_commit_msg() do
-    IO.gets("Next commit msg: ") |> String.trim()
+    Term.gets("Next commit message:")
   end
 end
 
