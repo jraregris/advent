@@ -103,7 +103,7 @@ defmodule TCR do
         :blue,
         commit_msg,
         :reset,
-        "Again?",
+        " Again?",
         :light_black,
         " (m for new msg) Y/n?"
       ]
