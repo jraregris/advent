@@ -62,6 +62,17 @@ defmodule Term do
     rc
   end
 
+  def status(:fail) do
+    sc
+    IO.ANSI.cursor(1, 35) |> IO.write()
+
+    [" ", :red_background, :black, " Test FAIL "]
+    |> IO.ANSI.format()
+    |> IO.write()
+
+    rc
+  end
+
   def status(:ok) do
     sc
     IO.ANSI.cursor(1, 35) |> IO.write()
