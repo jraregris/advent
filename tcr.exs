@@ -80,7 +80,7 @@ defmodule TCR do
       if(status == 0) do
         output(:ok, "Pending test OK, remove pending tag!")
       else
-        output(:warning, "\nPending test(s):")
+        Term.warn("\nPending test(s):")
         IO.puts(output)
       end
     end
@@ -89,7 +89,7 @@ defmodule TCR do
   defp puts_error(error) do
     cond do
       Regex.match?(~r/nothing to commit/, error) ->
-        output(:warning, "Nothing to commit")
+        Term.warn("Nothing to commit")
 
       true ->
         IO.puts(error)
