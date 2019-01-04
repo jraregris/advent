@@ -73,7 +73,14 @@ defmodule Term do
     puts(msg, :green)
   end
 
+  defp tcols do
+    {cols, 0} = System.cmd("tput", ["cols"])
+    cols |> String.to_integer()
+  end
+
   def choice(msg) do
+    IO.ANSI.cursor(0, tcols - msg) |> IO.write()
+
     msg
     |> IO.gets()
     |> String.trim()
