@@ -22,6 +22,10 @@ defmodule Term do
     |> IO.write()
   end
 
+  def status(:ok) do
+    [:green, "Test OK"] |> IO.ANSI.format() |> IO.write()
+  end
+
   def gets(msg) do
     IO.gets(msg)
     |> String.trim()
@@ -143,7 +147,7 @@ defmodule TCR do
     Term.timestamp_done(t)
 
     if test == :ok do
-      Term.ok("Test OK")
+      Term.status(:ok)
       TCR.commit(commit_msg)
     end
 
