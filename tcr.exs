@@ -110,7 +110,7 @@ defmodule Term do
 
   def commit_status(status, msg) do
     sc
-    IO.ANSI.cursor(0, 46) |> IO.write()
+    IO.ANSI.cursor(0, 48) |> IO.write()
 
     case status do
       :ok ->
