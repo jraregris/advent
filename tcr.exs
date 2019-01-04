@@ -107,7 +107,7 @@ defmodule TCR do
         :light_black,
         " (m for new msg) ",
         :reset,
-        "Y/n?"
+        "Y/n? "
       ]
       |> IO.ANSI.format()
       |> IO.gets()
