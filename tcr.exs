@@ -89,7 +89,7 @@ defmodule TCR do
   end
 
   defp output(:warning, msg) do
-    IO.ANSI.format([:yellow, msg]) |> IO.puts()
+    Term.puts(msg, :yellow)
   end
 
   defp output(:ok, msg) do
