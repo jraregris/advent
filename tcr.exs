@@ -139,7 +139,7 @@ defmodule TCR do
   end
 
   defp get_commit_msg() do
-    Term.gets("Next commit message:")
+    Term.gets("Next commit message: ")
   end
 end
 
