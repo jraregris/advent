@@ -98,6 +98,7 @@ defmodule Term do
   end
 
   def commit_status(status, msg) do
+    sc
     IO.ANSI.cursor(0, 46) |> IO.write()
 
     case status do
@@ -114,6 +115,8 @@ defmodule Term do
             error(msg)
         end
     end
+
+    rc
   end
 
   defp tcols do
