@@ -8,7 +8,7 @@ defmodule Term do
     t = DateTime.utc_now()
 
     IO.ANSI.format([:light_black, t |> to_string])
-    |> IO.puts()
+    |> IO.write()
 
     t
   end
