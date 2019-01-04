@@ -62,22 +62,20 @@ defmodule Term do
     rc
   end
 
-  def status(:fail) do
+  def status(status) do
+    {bg_color, msg} =
+      case status do
+        :ok ->
+          {:green_background, "  TEST OK  "}
+
+        :fail ->
+          {:red_background, " TEST FAIL "}
+      end
+
     sc
     IO.ANSI.cursor(1, 35) |> IO.write()
 
     [" ", :red_background, :black, " Test FAIL "]
-    |> IO.ANSI.format()
-    |> IO.write()
-
-    rc
-  end
-
-  def status(:ok) do
-    sc
-    IO.ANSI.cursor(1, 35) |> IO.write()
-
-    [" ", :green_background, :black, " Test OK "]
     |> IO.ANSI.format()
     |> IO.write()
 
