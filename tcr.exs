@@ -93,7 +93,7 @@ defmodule TCR do
   end
 
   defp output(:warning, msg) do
-    Term.puts(msg, :yellow)
+    Term.warn(msg)
   end
 
   defp output(:ok, msg) do
