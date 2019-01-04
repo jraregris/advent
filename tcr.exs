@@ -207,6 +207,7 @@ defmodule TCR do
   end
 
   def pending() do
+    Term.set_cursor_to_output()
     {_, status} = System.cmd("grep", ["--recursive", "@tag :pending", "test"])
 
     if status == 0 do
