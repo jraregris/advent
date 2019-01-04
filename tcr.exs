@@ -48,10 +48,14 @@ defmodule Term do
       DateTime.utc_now()
       |> DateTime.diff(start_time, :milliseconds)
 
+    sc
+
     IO.ANSI.cursor(1, 29) |> IO.write()
 
     IO.ANSI.format([" ", duration |> to_string, "ms"])
     |> IO.write()
+
+    rc
   end
 
   def status(:ok) do
