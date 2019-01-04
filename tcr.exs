@@ -17,6 +17,10 @@ defmodule Term do
   def puts(msg, color) when is_binary(msg) and is_atom(color) do
     IO.ANSI.format([color, msg]) |> IO.puts()
   end
+
+  def warn(msg) do
+    puts(msg, :yellow)
+  end
 end
 
 defmodule TCR do
