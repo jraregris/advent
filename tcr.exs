@@ -31,9 +31,9 @@ defmodule Term do
     msg |> IO.puts()
   end
 
-  def puts(msg, color) when is_binary(msg) and is_atom(color) do
+  def puts(msg, color) do
     IO.ANSI.format([color, msg])
-    |> IO.puts()
+    |> IO.write()
   end
 
   def warn(msg) do
@@ -44,7 +44,7 @@ defmodule Term do
     puts(msg, :red)
   end
 
-  def ok(msg, newline? \\ false) do
+  def ok(msg) do
     puts(msg, :green)
   end
 
