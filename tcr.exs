@@ -75,7 +75,7 @@ defmodule Term do
 
   defp tcols do
     {cols, 0} = System.cmd("tput", ["cols"])
-    cols |> String.to_integer()
+    cols |> String.trim() |> String.to_integer()
   end
 
   def choice(msg) do
