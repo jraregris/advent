@@ -2,6 +2,10 @@ defmodule Term do
   def clear() do
     IO.ANSI.format([:clear, :home])
     |> IO.write()
+
+    hl()
+
+    IO.ANSI.cursor(4, 0) |> IO.write()
   end
 
   def timestamp do
