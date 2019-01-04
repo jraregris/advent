@@ -16,7 +16,7 @@ defmodule Term do
   end
 
   def hl() do
-    System.cmd("tput", ["cols"]) |> IO.inspect()
+    {cols, 0} = System.cmd("tput", ["cols"]) |> IO.inspect()
   end
 
   def commit_msg(msg) do
