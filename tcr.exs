@@ -5,8 +5,19 @@ defmodule Term do
   end
 
   def timestamp do
-    IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string])
+    t = DateTime.utc_now()
+
+    IO.ANSI.format([:light_black, t |> to_string])
     |> IO.puts()
+
+    t
+  end
+
+  def timestamp_done(start_time) do
+    IO.ANSI.format([:home, :cursor_down]) |> IO.write()
+    t = DateTime.utc_now()
+
+    IO.ANSI.format([:light_black, t |> to_string]) |> IO.write()
   end
 
   def gets(msg) do
