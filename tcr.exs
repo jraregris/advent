@@ -39,8 +39,10 @@ defmodule Term do
   end
 
   def commit_msg(msg) do
+    sc
     IO.ANSI.cursor(2, 0) |> IO.write()
     IO.ANSI.format([:blue, msg]) |> IO.write()
+    rc
   end
 
   def timestamp_done(start_time) do
