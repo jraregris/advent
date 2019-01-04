@@ -37,7 +37,7 @@ defmodule Term do
 
     {cols, 0} = System.cmd("tput", ["cols"])
     {n, _} = cols |> Integer.parse()
-    List.duplicate("─", n) |> Enum.join() |> IO.write()
+    List.duplicate("═", n) |> Enum.join() |> IO.write()
   end
 
   def commit_msg(msg) do
