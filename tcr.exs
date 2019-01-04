@@ -223,6 +223,7 @@ defmodule TCR do
 
       case commit_status do
         :ok -> TCR.commit_status(:ok, "Commited OK")
+        {:error, error} -> TCR.commit_status(:error, error)
       end
     end
 
