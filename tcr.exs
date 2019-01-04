@@ -160,10 +160,16 @@ defmodule Term do
         :yes
     end
   end
+
+  def set_cursor_to_output() do
+    IO.ANSI.cursor(4, 0) |> IO.write()
+  end
 end
 
 defmodule TCR do
   def test(verbose: verbose) do
+    Term.set_cursor_to_output()
+
     {cmd_output, status} =
       System.cmd("mix", ["test", "--exclude", "pending", "--color"])
 
