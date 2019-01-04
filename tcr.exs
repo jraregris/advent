@@ -91,6 +91,7 @@ defmodule TCR do
 
   def tcr(commit_msg: commit_msg, verbose: verbose) do
     Term.clear()
+    Term.timestamp()
     test = TCR.test(verbose: verbose)
 
     if test == :ok do
