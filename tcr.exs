@@ -14,6 +14,10 @@ defmodule Term do
     |> String.trim()
   end
 
+  def puts(msg) do
+    msg |> IO.puts()
+  end
+
   def puts(msg, color) when is_binary(msg) and is_atom(color) do
     IO.ANSI.format([color, msg]) |> IO.puts()
   end
@@ -38,13 +42,13 @@ defmodule TCR do
 
     if(status == 0) do
       if(verbose > 0) do
-        IO.puts(cmd_output)
+        Term.puts(cmd_output)
       end
 
       Term.ok("Test OK")
       :ok
     else
-      IO.puts(cmd_output)
+      Term.puts(cmd_output)
       :fail
     end
   end
@@ -60,7 +64,7 @@ defmodule TCR do
       )
 
     if(status == 0) do
-      IO.puts("Commit: " <> commit_msg)
+      Term.puts("Commit: " <> commit_msg)
     end
 
     case {output, status} do
@@ -85,7 +89,7 @@ defmodule TCR do
         Term.ok("Pending test OK, remove pending tag!")
       else
         Term.warn("\nPending test(s):")
-        IO.puts(output)
+        Term.puts(output)
       end
     end
   end
@@ -96,7 +100,7 @@ defmodule TCR do
         Term.warn("Nothing to commit")
 
       true ->
-        IO.puts(error)
+        Term.puts(error)
     end
   end
 
@@ -128,7 +132,7 @@ defmodule TCR do
         "Y/n? "
       ]
       |> IO.ANSI.format()
-      |> IO.gets()
+      |> Term.gets()
 
     yeses = ["\n", "y\n", "Y\n", "yes\n"]
     message = ["m\n", "M\n"]
