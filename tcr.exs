@@ -250,9 +250,9 @@ defmodule TCR do
 
     if test == :fail do
       TCR.revert()
+    else
+      TCR.pending()
     end
-
-    TCR.pending()
 
     prompt()
     |> case do
