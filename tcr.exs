@@ -33,6 +33,23 @@ defmodule Term do
   def ok(msg) do
     puts(msg, :green)
   end
+
+  def choice(msg) do
+    msg
+    |> IO.gets()
+    |> String.trim()
+    |> String.downcase()
+    |> case do
+      "n" ->
+        :no
+
+      "m" ->
+        :message
+
+      _ ->
+        :yes
+    end
+  end
 end
 
 defmodule TCR do
@@ -120,31 +137,26 @@ defmodule TCR do
 
     TCR.pending()
 
-    choice =
-      [
-        :blue,
-        commit_msg,
-        :reset,
-        " Again?",
-        :light_black,
-        " (m for new msg) ",
-        :reset,
-        "Y/n? "
-      ]
-      |> IO.ANSI.format()
-      |> Term.gets()
-
-    yeses = ["\n", "y\n", "Y\n", "yes\n"]
-    message = ["m\n", "M\n"]
-
-    cond do
-      choice in yeses ->
+    [
+      :blue,
+      commit_msg,
+      :reset,
+      " Again?",
+      :light_black,
+      " (m for new msg) ",
+      :reset,
+      "Y/n? "
+    ]
+    |> IO.ANSI.format()
+    |> Term.choice()
+    |> case do
+      :yes ->
         TCR.tcr(commit_msg: commit_msg, verbose: verbose)
 
-      choice in message ->
+      :message ->
         TCR.tcr(commit_msg: get_commit_msg(), verbose: verbose)
 
-      true ->
+      _ ->
         nil
     end
   end
