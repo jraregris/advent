@@ -12,6 +12,8 @@ defmodule Term do
     IO.ANSI.format([:light_black, t |> to_string])
     |> IO.write()
 
+    IO.ANSI.blink_off() |> IO.write()
+
     t
   end
 
