@@ -75,6 +75,25 @@ defmodule Term do
     puts(msg, :green)
   end
 
+  def commit_status(status, msg) do
+    IO.ANSI.cursor(0, 46) |> IO.write()
+
+    case status do
+      :ok ->
+        ok(msg)
+
+      :error ->
+        cond do
+          Regex.match?(~r/nothing to commit/, msg) ->
+            Term.warn("Nothing to commit")
+
+          true ->
+            IO.ANSI.cursor(4, 0) |> IO.write()
+            error(msg)
+        end
+    end
+  end
+
   defp tcols do
     {cols, 0} = System.cmd("tput", ["cols"])
     cols |> String.trim() |> String.to_integer()
@@ -133,7 +152,7 @@ defmodule TCR do
 
     case {output, status} do
       {_, 0} -> :ok
-      {error, 1} -> {:error, puts_error(error)}
+      {error, 1} -> {:error, error}
     end
   end
 
@@ -159,13 +178,6 @@ defmodule TCR do
   end
 
   defp puts_error(error) do
-    cond do
-      Regex.match?(~r/nothing to commit/, error) ->
-        Term.warn("Nothing to commit")
-
-      true ->
-        Term.puts(error)
-    end
   end
 
   def tcr(commit_msg: commit_msg, verbose: verbose) do
@@ -180,7 +192,11 @@ defmodule TCR do
 
     if test == :ok do
       Term.status(:ok)
-      TCR.commit(commit_msg)
+      commit_status = TCR.commit(commit_msg)
+
+      case commit_status do
+        :ok -> TCR.commit_status(:ok, "Commited OK")
+      end
     end
 
     if test == :fail do
