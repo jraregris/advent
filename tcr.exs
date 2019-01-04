@@ -128,7 +128,7 @@ defmodule TCR do
   end
 
   defp get_commit_msg() do
-    IO.gets("Next commit msg: ")
+    IO.gets("Next commit msg: ") |> String.trim()
   end
 end
 
