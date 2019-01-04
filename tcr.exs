@@ -105,7 +105,11 @@ defmodule TCR do
         :reset,
         " Again?",
         :light_black,
-        " (m for new msg) Y/n?"
+        " (m for new msg) ",
+        :green,
+        "Y",
+        :reset,
+        "/n?"
       ]
       |> IO.ANSI.format()
       |> IO.gets()
