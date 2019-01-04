@@ -21,6 +21,10 @@ defmodule Term do
   def warn(msg) do
     puts(msg, :yellow)
   end
+
+  def error(msg) do
+    puts(msg, :red)
+  end
 end
 
 defmodule TCR do
