@@ -1,14 +1,21 @@
 defmodule Term do
   def clear() do
-    IO.ANSI.format([:clear, :home]) |> IO.write()
+    IO.ANSI.format([:clear, :home])
+    |> IO.write()
   end
 
   def timestamp do
-    IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string]) |> IO.puts()
+    IO.ANSI.format([:light_black, DateTime.utc_now() |> to_string])
+    |> IO.puts()
   end
 
   def gets(msg) do
-    IO.gets(msg) |> String.trim()
+    IO.gets(msg)
+    |> String.trim()
+  end
+
+  def puts(msg, color) when is_binary(msg) and is_atom(color) do
+    IO.ANSI.format([color, msg]) |> IO.puts()
   end
 end
 
