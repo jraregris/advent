@@ -19,7 +19,7 @@ defmodule Term do
       |> DateTime.diff(start_time, :milliseconds)
 
     IO.ANSI.format([" ", duration |> to_string, "ms"])
-    |> IO.puts()
+    |> IO.write()
   end
 
   def gets(msg) do
