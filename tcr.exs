@@ -15,6 +15,10 @@ defmodule Term do
     t
   end
 
+  def hl() do
+    System.cmd("tput", ["cols"]) |> IO.inspect()
+  end
+
   def commit_msg(msg) do
     IO.ANSI.cursor(2, 0) |> IO.write()
     IO.ANSI.format([:blue, msg]) |> IO.write()
@@ -151,8 +155,9 @@ defmodule TCR do
 
   def tcr(commit_msg: commit_msg, verbose: verbose) do
     Term.clear()
-    t = Term.timestamp()
     Term.commit_msg(commit_msg)
+    Term.hl()
+    t = Term.timestamp()
 
     test = TCR.test(verbose: verbose)
 
