@@ -152,7 +152,7 @@ defmodule Term do
     |> String.trim()
     |> String.downcase()
     |> case do
-      "n" - dv mdnv mdv
+      "n" ->
         :no
 
       "m" ->
