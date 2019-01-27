@@ -54,7 +54,7 @@ defmodule Day1Test do
     @tag :pending
     test "fourth example" do
       frequency = [+7, +7, -2, -7, -4] |> Day1.frequency()
-      assert frequency == 14
+      assert frequency == 142
     end
   end
 end
