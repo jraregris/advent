@@ -52,7 +52,7 @@ defmodule Term do
   def timestamp_done(start_time) do
     duration =
       DateTime.utc_now()
-      |> DateTime.diff(start_time, :milliseconds)
+      |> DateTime.diff(start_time, :millisecond)
 
     sc()
 
