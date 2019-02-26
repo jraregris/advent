@@ -2,7 +2,7 @@ defmodule FizzTest do
   use ExUnit.Case
 
   test "null" do
-    assert honk == 4
+    assert honk() == 4
   end
 
   def honk do
