@@ -4,4 +4,8 @@ defmodule FizzTest do
   test "null" do
     assert 1 == 1
   end
+
+  def honk do
+    4
+  end
 end
