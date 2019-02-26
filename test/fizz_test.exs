@@ -6,6 +6,6 @@ defmodule FizzTest do
   end
 
   def honk do
-    4
+    2 + 2
   end
 end
