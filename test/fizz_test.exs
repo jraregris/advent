@@ -3,7 +3,7 @@ defmodule FizzTest do
 
   @tag :pending
   test "null" do
-    assert honk() == 3
+    assert honk() == 4
   end
 
   def honk do
